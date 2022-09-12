@@ -1,9 +1,12 @@
 
 import './App.css';
+import Login from './components/login'
 
 function App() {
   return (
-    <h1>Initial commit</h1>
+    <>
+      <Login/>
+    </>
   );
 }
 

@@ -13,6 +13,9 @@ const customTheme = extendTheme({
         },
         green: {
             
+        },
+        whiteBack: {
+            500: '#ededed'
         }
     }
 })
