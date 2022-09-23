@@ -1,4 +1,6 @@
 import React from "react";
+import { Link as NavLink } from "react-router-dom"
+import styled from "@emotion/styled";
 import {
   Divider,
   Text,
@@ -34,6 +36,22 @@ import { AiOutlineSearch, AiOutlineShoppingCart, AiOutlineMenu } from "react-ico
 import { IoLocationOutline, IoChevronDown, IoNotificationsOutline } from "react-icons/io5";
 import { RiShoppingCartLine } from "react-icons/ri";
 
+const LinkItem = ({to, children, color}) => {
+  return (
+    <NavLink to={to}>
+      <Link fontWeight="light" fontSize="sm" _hover={{textDecoration: "none", fontWeight: "normal"}} color={color}>
+        {children}
+      </Link>
+    </NavLink>
+  )
+}
+
+
+
+/* 
+color="textGrayColor.600" 
+color="textGrayColor.600
+*/
 
 const header = () => {
   return (
@@ -144,28 +162,28 @@ const header = () => {
             </Menu>
           </li>
           <li>
-            <Link _hover={{textDecoration: "none", fontWeight: "normal"}} fontWeight="light" fontSize="sm" color="textGrayColor.300">Ofertas</Link>
+            <LinkItem to="/" color="textGrayColor.300">Ofertas</LinkItem>
           </li>
           <li>
-            <Link _hover={{textDecoration: "none", fontWeight: "normal"}} fontWeight="light" fontSize="sm" color="textGrayColor.300">Historial</Link>
+            <LinkItem to="/" color="textGrayColor.300">Historial</LinkItem>
           </li>
           <li>
-            <Link _hover={{textDecoration: "none", fontWeight: "normal"}} fontWeight="light" fontSize="sm" color="textGrayColor.300">Vender</Link>
+            <LinkItem to="/" color="textGrayColor.300">Vender</LinkItem>
           </li>
           <li>
-            <Link _hover={{textDecoration: "none", fontWeight: "normal"}} fontWeight="light" fontSize="sm" color="textGrayColor.300">Ayuda/PQR</Link>
+            <LinkItem to="/" color="textGrayColor.300">Ayuda/PQR</LinkItem>
           </li> 
         </HStack>
 
         <HStack position="absolute" bottom="8px" right="10px" as="ul" listStyleType="none" spacing={4} ml="190px" display={{base: "none", lg:"flex"}}>
           <li>
-            <Link _hover={{textDecoration: "none", fontWeight: "normal"}}  fontWeight="light" fontSize="sm" color="textGrayColor.600">Crea tu cuenta</Link>
+            <LinkItem to="/" color="textGrayColor.600">Crea tu cuenta</LinkItem>
           </li>
           <li>
-            <Link _hover={{textDecoration: "none", fontWeight: "normal"}}  fontWeight="light" fontSize="sm" color="textGrayColor.600">Ingresa</Link>
+            <LinkItem to="/login" color="textGrayColor.600">Ingresa</LinkItem>
           </li>
           <li>
-            <Link _hover={{textDecoration: "none", fontWeight: "normal"}} fontWeight="light" fontSize="sm" color="textGrayColor.600">Mis compras</Link>
+            <LinkItem to="/"color="textGrayColor.600">Mis compras</LinkItem>
           </li>
           <li>
           <Square cursor="pointer">
