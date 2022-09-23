@@ -149,7 +149,7 @@ const header = () => {
         <HStack as="ul" listStyleType="none" spacing={6} ml="190px" display={{base: "none", lg:"flex"}}>
           <li>
             <Menu>
-              <MenuButton  _hover={{textDecoration: "none", fontWeight: "normal"}} as={Button} rightIcon={<IoChevronDown />} bg="transparent" fontWeight="light" fontSize="sm" color="textGrayColor.300" _hover={{bg:"transparent"}} _active={{bg:"transparent"}} p="0">
+              <MenuButton  _hover={{bg:"transparent", textDecoration: "none", fontWeight: "normal"}} as={Button} rightIcon={<IoChevronDown />} bg="transparent" fontWeight="light" fontSize="sm" color="textGrayColor.300" _active={{bg:"transparent"}} p="0">
                 Categorías
               </MenuButton>
               <MenuList bg="rgb(51,51,51)">
