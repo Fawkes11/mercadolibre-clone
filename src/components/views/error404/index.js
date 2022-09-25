@@ -1,8 +1,11 @@
 import React from 'react'
+import CompletedLayout from '../../layouts/CompletedLayout'
 
 const ErrorNotFound = () => {
   return (
-    <div>ErrorNotFound</div>
+    <CompletedLayout>
+      <h1>Uups, no hay nada aqui!</h1>
+    </CompletedLayout>
   )
 }
 
