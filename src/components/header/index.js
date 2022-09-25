@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as NavLink } from "react-router-dom"
+import LinkItem from "../navigation/NavLink";
 import styled from "@emotion/styled";
 import {
   Divider,
@@ -35,23 +35,10 @@ import {
 import { AiOutlineSearch, AiOutlineShoppingCart, AiOutlineMenu } from "react-icons/ai";
 import { IoLocationOutline, IoChevronDown, IoNotificationsOutline } from "react-icons/io5";
 import { RiShoppingCartLine } from "react-icons/ri";
-
-const LinkItem = ({to, children, color}) => {
-  return (
-    <NavLink to={to}>
-      <Link fontWeight="light" fontSize="sm" _hover={{textDecoration: "none", fontWeight: "normal"}} color={color}>
-        {children}
-      </Link>
-    </NavLink>
-  )
-}
+import NavLink from "../navigation/NavLink";
 
 
 
-/* 
-color="textGrayColor.600" 
-color="textGrayColor.600
-*/
 
 const header = () => {
   return (
@@ -65,20 +52,20 @@ const header = () => {
     >
       <Container w="100%" maxW="1200px" p="0" position="relative">
 
-        <Link
+        <NavLink
           pos="absolute"
           top={{ base: "8px", lg: "11px" }}
           left="10px"
           w={{ base: "44px", lg: "134px" }}
           h={{ base: "32px", lg: "34" }}
-          href="#"
+          to="/"
           bgImage={{
             base: "url('https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.1/mercadolibre/logo__small@2x.png')",
             lg: "https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.1/mercadolibre/logo__large_plus@2x.png",
           }}
           bgRepeat="no-repeat"
           bgSize={{ base: "44px 32px", lg: "134px 34px" }}
-        ></Link>
+        ></NavLink>
 
         <Box
           as="form"
