@@ -14,8 +14,8 @@ const InputFieldWrapper = ({
             <Field name={name}>
                 {({ field, meta, form }) =>
                 (
-                    <FormControl isInvalid={meta.touched && meta.error}>
-                        <FormLabel>{label}</FormLabel>
+                    <FormControl as="fieldset" isInvalid={meta.touched && meta.error} >
+                        <FormLabel  as="legend" fontSize="sm" fontWeight="normal">{label}</FormLabel>
                         <Input {...field} {...otherProps} />
                         <FormErrorMessage>{form.errors[`${name}`]}</FormErrorMessage>
                     </FormControl>
