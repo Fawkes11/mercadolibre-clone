@@ -1,4 +1,5 @@
 import React from "react";
+import * as Yup from 'yup';
 import {
     Divider,
     Text,
@@ -12,11 +13,24 @@ import {
     Flex,
     Button,
     Container,
+    FormErrorMessage,
 } from "@chakra-ui/react";
-import { useFormik } from "formik";
+import { useFormik, Form, Formik, Field } from "formik";
 import SimpleLayout from "../../layouts/SimpleLayout";
+import InputFieldWrapper from "../../formsUI/InputFieldWrapper";
 
 const Login = () => {
+
+    const INITIAL_FORM_STATE = {
+        email: "",
+        password: ""
+    }
+
+    const FORM_VALIDATION = Yup.object().shape({
+        "email": Yup.string().email("Ingrese un email válido").required("Este campo es obligatorio"),
+        "password": Yup.string().required("Este campo es obligatorio")
+    })
+
     return (
         <SimpleLayout>
 
@@ -41,29 +55,52 @@ const Login = () => {
                 >
                     ¡Hola! Ingresa tu teléfono, e‑mail o usuario
                 </Text>
+                <Formik
+                    initialValues={INITIAL_FORM_STATE}
+                    validationSchema={FORM_VALIDATION}
+                    onSubmit={(values, actions) => {
+                        setTimeout(() => {
+                            console.log(values)
+                            alert(JSON.stringify(values, null, 2))
+                            actions.setSubmitting(false)
+                            actions.resetForm()
+                        }, 1000)
+                    }}
+                >
+                    {(props) => 
+                        (
+                            <VStack as={Form} spacing={4} w="100%">
+                                <InputFieldWrapper
+                                    name="email"
+                                    label="Teléfono, E-mail o usuario"
+                                    h="48px" />
 
-                <VStack as="form" spacing={4} w="100%">
-                    <FormControl as="fieldset">
-                        <FormLabel as="legend" fontSize="sm" fontWeight="normal">
-                            Teléfono, E-mail o usuario
-                        </FormLabel>
-                        <Input name="email" type="email" h="48px" />
-                        {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
-                    </FormControl>
-                    <FormControl as="fieldset">
-                        <FormLabel as="legend" fontSize="sm" fontWeight="normal">
-                            Contraseña
-                        </FormLabel>
-                        <Input name="password" type="password" h="48px" />
-                        {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
-                    </FormControl>
-                    <Button w="100%" colorScheme="blue" h="48px">
-                        Continuar
-                    </Button>
-                    <Button w="100%" colorScheme="white" textColor="blue.500" h="48px">
-                        Crear cuenta
-                    </Button>
-                </VStack>
+                                <InputFieldWrapper
+                                    name="password"
+                                    type="password"
+                                    label="Contraseña"
+                                    h="48px" />
+
+                                <Button
+                                    w="100%"
+                                    colorScheme="blue"
+                                    h="48px"
+                                    type="submit"
+                                    isLoading={props.isSubmitting}>
+                                    Continuar
+                                </Button>
+                                <Button
+                                    w="100%"
+                                    colorScheme="white"
+                                    textColor="blue.500"
+                                    h="48px">
+                                    Crear cuenta
+                                </Button>
+                            </VStack>
+                        )
+                    }
+                </Formik>
+
 
                 <Divider w={{ base: "0", md: "424px" }} />
                 <Button
@@ -79,6 +116,7 @@ const Login = () => {
                     Necesito ayuda para ingresar
                 </Button>
             </VStack>
+
         </SimpleLayout>
     );
 };
