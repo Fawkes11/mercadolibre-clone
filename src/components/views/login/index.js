@@ -1,4 +1,5 @@
 import React from "react";
+import * as Yup from 'yup';
 import {
     Divider,
     Text,
@@ -12,11 +13,24 @@ import {
     Flex,
     Button,
     Container,
+    FormErrorMessage,
 } from "@chakra-ui/react";
-import { useFormik } from "formik";
+import { useFormik, Form, Formik, Field } from "formik";
 import SimpleLayout from "../../layouts/SimpleLayout";
+import InputFieldWrapper from "../../formsUI/InputFieldWrapper";
 
 const Login = () => {
+
+    const INITIAL_FORM_STATE = {
+        email: "",
+        password: ""
+    }
+
+    const FORM_VALIDATION = Yup.object().shape({
+        "email": Yup.string().email("email no ").required("required"),
+        "password": Yup.string().required("required pass")
+    })
+
     return (
         <SimpleLayout>
 
@@ -79,6 +93,7 @@ const Login = () => {
                     Necesito ayuda para ingresar
                 </Button>
             </VStack>
+            
         </SimpleLayout>
     );
 };
