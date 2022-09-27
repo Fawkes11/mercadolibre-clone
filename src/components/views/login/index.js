@@ -3,19 +3,11 @@ import * as Yup from 'yup';
 import {
     Divider,
     Text,
-    Box,
-    Link,
-    FormControl,
-    FormLabel,
-    Input,
-    FormHelperText,
     VStack,
-    Flex,
     Button,
-    Container,
-    FormErrorMessage,
 } from "@chakra-ui/react";
-import { useFormik, Form, Formik, Field } from "formik";
+import { Link } from "react-router-dom";
+import { Form, Formik } from "formik";
 import SimpleLayout from "../../layouts/SimpleLayout";
 import InputFieldWrapper from "../../formsUI/InputFieldWrapper";
 
@@ -67,37 +59,39 @@ const Login = () => {
                         }, 1000)
                     }}
                 >
-                    {(props) => 
-                        (
-                            <VStack as={Form} spacing={4} w="100%">
-                                <InputFieldWrapper
-                                    name="email"
-                                    label="Teléfono, E-mail o usuario"
-                                    h="48px" />
+                    {(props) =>
+                    (
+                        <VStack as={Form} spacing={4} w="100%">
+                            <InputFieldWrapper
+                                name="email"
+                                label="Teléfono, E-mail o usuario"
+                                h="48px" />
 
-                                <InputFieldWrapper
-                                    name="password"
-                                    type="password"
-                                    label="Contraseña"
-                                    h="48px" />
+                            <InputFieldWrapper
+                                name="password"
+                                type="password"
+                                label="Contraseña"
+                                h="48px" />
 
-                                <Button
-                                    w="100%"
-                                    colorScheme="blue"
-                                    h="48px"
-                                    type="submit"
-                                    isLoading={props.isSubmitting}>
-                                    Continuar
-                                </Button>
-                                <Button
-                                    w="100%"
-                                    colorScheme="white"
-                                    textColor="blue.500"
-                                    h="48px">
-                                    Crear cuenta
-                                </Button>
-                            </VStack>
-                        )
+                            <Button
+                                w="100%"
+                                colorScheme="blue"
+                                h="48px"
+                                type="submit"
+                                isLoading={props.isSubmitting}>
+                                Continuar
+                            </Button>
+                            <Button
+                                as={Link}
+                                to="/register"
+                                w="100%"
+                                colorScheme="white"
+                                textColor="blue.500"
+                                h="48px">
+                                Crear cuenta
+                            </Button>
+                        </VStack>
+                    )
                     }
                 </Formik>
 

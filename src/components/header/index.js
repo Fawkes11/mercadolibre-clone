@@ -164,7 +164,7 @@ const header = () => {
 
         <HStack position="absolute" bottom="8px" right="10px" as="ul" listStyleType="none" spacing={4} ml="190px" display={{base: "none", lg:"flex"}}>
           <li>
-            <LinkItem to="/" color="textGrayColor.600">Crea tu cuenta</LinkItem>
+            <LinkItem to="/register" color="textGrayColor.600">Crea tu cuenta</LinkItem>
           </li>
           <li>
             <LinkItem to="/login" color="textGrayColor.600">Ingresa</LinkItem>
