@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mercadolibre-clone.git/static/css/main.a9041707.css",
-    "main.js": "/mercadolibre-clone.git/static/js/main.26acc236.js",
+    "main.js": "/mercadolibre-clone.git/static/js/main.90e20f76.js",
     "index.html": "/mercadolibre-clone.git/index.html",
     "main.a9041707.css.map": "/mercadolibre-clone.git/static/css/main.a9041707.css.map",
-    "main.26acc236.js.map": "/mercadolibre-clone.git/static/js/main.26acc236.js.map"
+    "main.90e20f76.js.map": "/mercadolibre-clone.git/static/js/main.90e20f76.js.map"
   },
   "entrypoints": [
     "static/css/main.a9041707.css",
-    "static/js/main.26acc236.js"
+    "static/js/main.90e20f76.js"
   ]
 }
