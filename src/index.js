@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ChakraProvider resetCSS theme={customTheme}>
-      <BrowserRouter>
+      <BrowserRouter basename='mercadolibre-clone/'>
         <App />
       </BrowserRouter>
     </ChakraProvider>
