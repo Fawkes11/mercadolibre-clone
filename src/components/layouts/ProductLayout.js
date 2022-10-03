@@ -2,11 +2,13 @@ import React, { useRef } from 'react'
 import { Link as NavLink } from 'react-router-dom'
 import { Box, Link, Flex, Button, UnorderedList, Icon } from '@chakra-ui/react'
 import { IoChevronBackSharp, IoChevronForwardSharp } from "react-icons/io5";
-
+import useHover from '../hooks/useHover';
 
 const ProductLayout = ({ children, topTitle, bottomTitle, ...otherProps }) => {
 
-    const scrollBox = useRef()
+    const scrollBox = useRef();
+    const [hoverRef, isHovered] = useHover();
+    
 
     const handleScrollLeft = () => {
         scrollBox.current.scroll({
@@ -26,8 +28,10 @@ const ProductLayout = ({ children, topTitle, bottomTitle, ...otherProps }) => {
 
     return (
         <Box
+            ref={hoverRef}
             borderRadius="6px"
             my="30px"
+            overflow={{base: "hidden", lg:"visible"}}
             boxShadow="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
             pos="relative"
         >
@@ -50,7 +54,7 @@ const ProductLayout = ({ children, topTitle, bottomTitle, ...otherProps }) => {
                 w="100%"
                 direction={{ base: "column", lg: "row" }}
                 overflow="hidden"
-                h={{ base: "570px", lg: "auto" }}
+                h={{ base: "570px", lg: "360px" }}
                 css={{
                     '&::-webkit-scrollbar': {
                         marginTop: "15px",
@@ -70,10 +74,10 @@ const ProductLayout = ({ children, topTitle, bottomTitle, ...otherProps }) => {
 
             </Flex>
             <Button
-                display={{ base: "none", lg: "inline-flex" }}
+                display={{ base: "none", lg: isHovered? "inline-flex": "none"}}
                 pos="absolute"
                 left="0"
-                top="50%"
+                top="164px"
                 transform={{ base: "translateY(-10%)", xl: "translateX(-30px)" }}
                 w="60px"
                 h="60px"
@@ -96,10 +100,10 @@ const ProductLayout = ({ children, topTitle, bottomTitle, ...otherProps }) => {
                     as={IoChevronBackSharp} />
             </Button>
             <Button
-                display={{ base: "none", lg: "inline-flex" }}
+                display={{ base: "none", lg: isHovered? "inline-flex": "none"}}
                 pos="absolute"
                 right="0"
-                top="50%"
+                top="164px"
                 transform={{ base: "translateY(-10%)", xl: "translateX(22px)" }}
                 w="60px"
                 h="60px"
@@ -125,6 +129,7 @@ const ProductLayout = ({ children, topTitle, bottomTitle, ...otherProps }) => {
             <Box bg="white" p="12px" display={{ base: "flex", lg: "none" }}>
                 <Link to="/" as={NavLink} fontSize="sm" fontWeight="semibold" lineHeight="1" color="blue.500" _hover={{ textDecoration: "none" }}>{bottomTitle}</Link>
             </Box>
+            
         </Box>
     )
 }
