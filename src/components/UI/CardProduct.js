@@ -16,7 +16,7 @@ const CardProduct = () => {
             ref={hoverRef}
             bg="white"
             mr={{ base: "0", lg: "10px" }}
-            borderRadius="0 0 6px 6px"
+            borderRadius={{base:"none", lg: "0 0 6px 6px"}}
             boxShadow="0 1px 1px 0 rgb(0 0 0 / 10%)"
             align="center"
             _hover={{
