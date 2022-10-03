@@ -8,11 +8,10 @@ import { UnorderedList, ListItem, Box, Text, Link, HStack, Flex } from '@chakra-
 const home = () => {
   return (
 
-    <CompletedLayout>
+    <CompletedLayout h="100vh">
       <ProductLayout
         topTitle="Inspirado en lo último que viste"
         bottomTitle="Ver más..."
-        h="100vh"
       >
         {
           ["a","a","a","a","a","a","a","a","a","a","a","a","a","a"].map((item, index) => 
@@ -23,7 +22,19 @@ const home = () => {
           })
         }
       </ProductLayout>
-      <h1>HOLA MUNDO</h1>
+      <ProductLayout
+        topTitle="Basado en tu carrito"
+        bottomTitle="Ver más..."
+      >
+        {
+          ["a","a","a","a","a","a","a","a","a","a","a","a","a","a"].map((item, index) => 
+          { return (
+            <ListItem key={index} borderTop="1px solid #ebebeb" borderBottom="1px solid #ebebeb" listStyleType="none">
+              <CardProduct/>
+            </ListItem>)
+          })
+        }
+      </ProductLayout>
     </CompletedLayout>
   )
 }
