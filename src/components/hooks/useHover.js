@@ -17,7 +17,8 @@ export default function useHover() {
           };
         }
       },
-      [ref.current]
     );
     return [ref, value];
   }
+
+  

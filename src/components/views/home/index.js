@@ -3,7 +3,7 @@ import React from 'react'
 import CompletedLayout from '../../layouts/CompletedLayout'
 import ProductLayout from '../../layouts/ProductLayout'
 import CardProduct from '../../UI/CardProduct'
-import { UnorderedList, ListItem, Box, Text, Link, HStack, Flex } from '@chakra-ui/react'
+import { ListItem } from  '@chakra-ui/react'
 
 const home = () => {
   return (
