@@ -1,38 +1,24 @@
 import React from "react";
 import LinkItem from "../navigation/NavLink";
-import styled from "@emotion/styled";
 import {
   Divider,
-  Text,
   Box,
   Link,
-  FormControl,
-  FormLabel,
   Square,
-  Input,
   Icon,
-  FormHelperText,
-  VStack,
   HStack,
   Flex,
   Button,
   Container,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   Image,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Badge,
 } from "@chakra-ui/react";
-
-import { AiOutlineSearch, AiOutlineShoppingCart, AiOutlineMenu } from "react-icons/ai";
+import FormInputSearch from "../formsUI/FormInputSearch";
+import { AiOutlineShoppingCart, AiOutlineMenu } from "react-icons/ai";
 import { IoLocationOutline, IoChevronDown, IoNotificationsOutline } from "react-icons/io5";
 import { RiShoppingCartLine } from "react-icons/ri";
 import NavLink from "../navigation/NavLink";
@@ -67,41 +53,7 @@ const header = () => {
           bgSize={{ base: "44px 32px", lg: "134px 34px" }}
         ></NavLink>
 
-        <Box
-          as="form"
-          h={{ base: "48px", lg: "56px" }}
-          py="8px"
-          position="relative"
-          left={{ base: "64px", lg: "190px" }}
-          w={{ base: "calc(100% - 158px)", lg: "calc(100% - 570px)" }}>
-          <InputGroup
-            h={{ base: "32px", lg: "39px" }}>
-            {window.screen.width > 1024 ? (
-              <InputRightElement
-                h={{ base: "32px", lg: "39px" }}
-                pointerEvents="none"
-                children={<AiOutlineSearch color="green.100" />}
-              />
-            ) : (
-              <InputLeftElement as="button"
-                h={{ base: "32px", lg: "39px" }}
-                pointerEvents="none"
-                children={<AiOutlineSearch color="gray.300" />}
-              />
-            )}
-            <Divider orientation='vertical' />
-            <Input
-              h={{ base: "32px", lg: "39px" }}
-              type="text"
-              placeholder="Buscar productos, marcas y más..."
-              _placeholder={{ opacity: 0.4 }}
-              bg="white"
-              border="none"
-              borderRadius="2px"
-              boxShadow= "base"
-            />
-          </InputGroup>
-        </Box>
+        <FormInputSearch/>
 
         <Link position="absolute" right="0" top="8px" display={{base: "none", lg: "flex"}}>
               <Image src="https://http2.mlstatic.com/D_NQ_921393-MLA51371540772_092022-OO.webp" alt="starplus" w="340px" borderRadius="rounded"/>
