@@ -1,22 +1,28 @@
 import { useState } from "react";
 import { Box, Input, InputGroup, InputRightElement, InputLeftElement, Divider } from "@chakra-ui/react"
 import { AiOutlineSearch } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { addSearchProducts } from "../../app/features/searchProducts/searchProductSlice"
+
 
 const FormInputSearch = () => {
 
-    const [inputValue, setInputValue] = useState("")
-    const [dataList, setDataList] = useState([])
+    const [inputValue, setInputValue] = useState("");
+    const [dataList, setDataList] = useState([]);
+    const dispatch = useDispatch();
 
-    const handleSearch = (e) => {
-        console.log(inputValue)
+    const handleSearch = (e) => { 
         e.preventDefault()
-        fetch("https://api.mercadolibre.com/sites/MCO/search?q=iphone%2013")
+        fetch(`https://api.mercadolibre.com/sites/MCO/search?q=${inputValue}`)
         .then((response) => {
             return response.json()
         }).then((data)=> {
-            setDataList(data.results)
-            console.log(dataList)
+            dispatch(addSearchProducts(data.results))
         })
+    }
+
+    const handleChange = (e) => {
+        setInputValue(e.target.value)
     }
 
     return (
@@ -33,6 +39,7 @@ const FormInputSearch = () => {
 
                 <InputLeftElement
                     as="button"
+                    type="submit"
                     display={{ base: "flex", lg: "none" }}
                     h={{ base: "32px", lg: "39px" }}
                     cursor="pointer"
@@ -43,6 +50,7 @@ const FormInputSearch = () => {
                     children={<AiOutlineSearch w="20px" color="gray.300" />}
                 /><InputRightElement
                     as="button"
+                    type="sumbit"
                     display={{ base: "none", lg: "flex" }}
                     h={{ base: "32px", lg: "39px" }}
                     cursor="pointer"
@@ -55,6 +63,7 @@ const FormInputSearch = () => {
 
                 <Divider orientation='vertical' />
                 <Input
+                    name="title"
                     h={{ base: "32px", lg: "39px" }}
                     type="text"
                     placeholder="Buscar productos, marcas y más..."
@@ -65,7 +74,7 @@ const FormInputSearch = () => {
                     boxShadow="base"
                     pl={{ lg: "16px" }}
                     pr={{ base: "8px" }}
-                    onChange={(inputV)=>setInputValue(inputV.target.value)}
+                    onChange={handleChange}
                 />
             </InputGroup>
         </Box>

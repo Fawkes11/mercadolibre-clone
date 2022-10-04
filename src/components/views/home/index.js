@@ -4,8 +4,11 @@ import CompletedLayout from '../../layouts/CompletedLayout'
 import ProductLayout from '../../layouts/ProductLayout'
 import CardProduct from '../../UI/CardProduct'
 import { ListItem } from  '@chakra-ui/react'
+import { useSelector } from 'react-redux'
 
-const home = () => {
+const Home = () => {
+  const dataList = useSelector(state => state.searchProducts)
+  console.log(dataList)
   return (
 
     <CompletedLayout h="100vh">
@@ -23,11 +26,11 @@ const home = () => {
         }
       </ProductLayout>
       <ProductLayout
-        topTitle="Basado en tu carrito"
+        topTitle="Basado en tu Busqueda"
         bottomTitle="Ver más..."
       >
         {
-          ["a","a","a","a","a","a","a","a","a","a","a","a","a","a"].map((item, index) => 
+          dataList.map((item, index) => 
           { return (
             <ListItem key={index} borderTop="1px solid #ebebeb" borderBottom="1px solid #ebebeb" listStyleType="none">
               <CardProduct/>
@@ -39,4 +42,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home
