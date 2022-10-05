@@ -4,13 +4,18 @@ import { Flex, Image, Box, Text, LinkBox, LinkOverlay } from "@chakra-ui/react"
 import useHover from '../hooks/useHover';
 
 
-const CardProduct = () => {
+const CardProduct = ({title, price, thumbnail}) => {
 
     const [hoverRef, isHovered] = useHover();
 
+    const formatCurrency = (value) => {
+
+        return "$ " + value?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    }
+
     return (
         <LinkBox
-        cursor="pointer"
+            cursor="pointer"
             display="flex"
             flexDirection={{ base: "row", lg: "column" }}
             ref={hoverRef}
@@ -24,8 +29,8 @@ const CardProduct = () => {
                 lg: { boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)" }
             }}
         >
-            <Flex p={{ base: "4px", lg: "20px" }} minWidth={{ base: "112px", lg: "224" }} height={{ base: "112px", lg: "224" }} justifyContent="center" align="center">
-                <Image src='https://http2.mlstatic.com/D_Q_NP_783936-MCO44218542862_122020-AB.webp' borderRadius="5px" w="100%" h="100%" />
+            <Flex p={{ base: "4px", lg: "20px" }} minWidth={{ base: "112px", lg: "224" }} height={{ base: "112px", lg: "224" }} justifyContent="center" align="center" overflow="hidden">
+                <Image src={thumbnail} borderRadius="5px" maxWidth={{base: "104px", lg: "184px"}} maxHeight={{base: "104px", lg: "184px"}} objectFit="cover"/>
             </Flex>
 
             <Box
@@ -47,7 +52,7 @@ const CardProduct = () => {
                     height={{ base: "auto", lg: isHovered ? "auto" : "0" }}
                     transition="all 0.15s ease-out"
                 >
-                    Soporte Base Celular Tablet Escritorio Ajustable Dos Ejes v1
+                    {title}
                 </LinkOverlay>
                 <Text
                     textAlign="left"
@@ -63,7 +68,8 @@ const CardProduct = () => {
                         fontSize="xl"
                         lineHeight="0.83"
                         mr="5px"
-                    >$18.990
+                    >
+                    {formatCurrency(price)}
                     </Text>
                     <Text color="#00a650" lineHeight="1" fontSize="xs" mt="1px">20% OFF</Text>
                 </Flex>
@@ -72,7 +78,7 @@ const CardProduct = () => {
                     lineHeight="1em"
                     fontSize="sm"
                     display={{ base: "visible", lg: "none" }}
-                >36x $527</Text>
+                >36x {`${formatCurrency(Math.trunc(price/36))}`}</Text>
                 <Box w="42px" display={{ base: "flex", lg: "none" }}>
                     <svg fill='#00a650' viewBox="0 0 44 14"><path d="M2.83 0h5.66L5.66 5h4.716L2.83 14l1.886-6H0l2.83-8zm12.48 10.267h-2.109l1.803-8.093H21l-.405 1.82h-3.887l-.27 1.262h3.79l-.405 1.82h-3.801l-.712 3.19zm10.197.145c-2.514 0-3.752-1.189-3.752-2.887 0-.134.037-.413.061-.534l1.08-4.817h2.145l-1.067 4.768c-.012.06-.037.194-.037.34.013.667.528 1.31 1.57 1.31 1.128 0 1.705-.703 1.913-1.65l1.067-4.768h2.134l-1.067 4.805c-.442 1.965-1.52 3.433-4.047 3.433zm10.896-.145h-5.396l1.803-8.093h2.11l-1.387 6.273h3.275l-.405 1.82zm7.192 0H38.2l1.802-8.093h2.11l-1.386 6.273H44l-.405 1.82z"></path></svg>
                 </Box>

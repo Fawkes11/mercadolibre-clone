@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field } from 'formik'
-import { FormControl, FormErrorMessage, FormLabel, Input, Button } from '@chakra-ui/react'
+import { FormControl, FormErrorMessage, FormLabel, Input } from '@chakra-ui/react'
 
 const InputFieldWrapper = ({
     name,
