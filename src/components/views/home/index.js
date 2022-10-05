@@ -32,8 +32,12 @@ const Home = () => {
         {
           dataList.map((item, index) => 
           { return (
-            <ListItem key={index} borderTop="1px solid #ebebeb" borderBottom="1px solid #ebebeb" listStyleType="none">
-              <CardProduct/>
+            <ListItem key={item.id} borderTop="1px solid #ebebeb" borderBottom="1px solid #ebebeb" listStyleType="none">
+              <CardProduct
+              title={item.title}
+              price={item.price}
+              thumbnail={item.thumbnail}
+              />
             </ListItem>)
           })
         }

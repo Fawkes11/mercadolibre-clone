@@ -7,7 +7,7 @@ export const searchProductsSlice = createSlice({
     initialState: [],
     reducers: {
         addSearchProducts: (state, action) => {
-            state.push(...action.payload)  
+            return [...action.payload]
         }
     }
 })
