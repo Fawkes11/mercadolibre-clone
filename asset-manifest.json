@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mercadolibre-clone/static/css/main.a9041707.css",
-    "main.js": "/mercadolibre-clone/static/js/main.16f33ea2.js",
+    "main.js": "/mercadolibre-clone/static/js/main.b6ed2f20.js",
     "index.html": "/mercadolibre-clone/index.html",
     "main.a9041707.css.map": "/mercadolibre-clone/static/css/main.a9041707.css.map",
-    "main.16f33ea2.js.map": "/mercadolibre-clone/static/js/main.16f33ea2.js.map"
+    "main.b6ed2f20.js.map": "/mercadolibre-clone/static/js/main.b6ed2f20.js.map"
   },
   "entrypoints": [
     "static/css/main.a9041707.css",
-    "static/js/main.16f33ea2.js"
+    "static/js/main.b6ed2f20.js"
   ]
 }
